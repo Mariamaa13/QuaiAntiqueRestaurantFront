@@ -1,12 +1,30 @@
 
 
-@import "../node_modules/bootstrap/scss/bootstrap";
 @import "custom";
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+footer.footer {
+    padding: 15px;
+    width: 100%;
+}
 
 .hero-scene{
     position: relative;
+    margin-bottom: 15px;
     &::before{
         content:"";
         position: absolute;
@@ -38,23 +56,58 @@
     text-align: justify;
 }
 
-.image-card{
-    position:relative;
-    &:hover{
-      opacity: 1;  
+.action-image-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 2;
+}
 
+.image-card {
+    position: relative;
+    &:hover {
+        .titre-image {
+            opacity: 1;
         }
-        .img{
+        .action-image-buttons {
+            opacity: 1;
+        }
+        img {
             filter: brightness(0.3);
         }
     }
-    img{
-            trnasition: all 0.3s;
+}
 
+img{
+    transition: all 0.3s;
+}
+.titre-image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.action-image-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+
+     opacity: 0;
+    transition: all 0.3s;
     }
-    .titre-image{
-        position absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-}       opacity: 0;
+
+
+  .form-label{
+            color: $primary
+        }
